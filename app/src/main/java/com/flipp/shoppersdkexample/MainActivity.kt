@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         flyerView.setFlyerEventsListener(object: FlyerEventsListener() {
             override fun onAddItemToList(itemName: String) {
                 shoppingListAdapter.add(itemName)
-                Toast.makeText(applicationContext, "Adapter size: ${shoppingListAdapter.count}", Toast.LENGTH_SHORT).show()
             }
         })
 

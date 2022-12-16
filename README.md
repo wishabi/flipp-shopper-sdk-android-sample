@@ -12,7 +12,6 @@ To successfully use the SDK, you need to request the following from us:
 The rest of this guide assumes you have obtained the aforementioned keys.
 
 ## Adding dependency via Gradle
-1) add the following repository to your **project's** `settings.gradle`:
 
 [//]: # (TODO add repository info once jfrog is set up)
 ```

@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Flipp.init(application, testSiteId, "YOUR_USER_ID", true, listOf(testZoneId)) {
+        Flipp.init(application, "wishabi-test-publisher", testSiteId, "YOUR_USER_ID", true, listOf(testZoneId)) {
             when (it) {
                 Flipp.SdkInitCallback.SdkInitResult.OK ->
                     Log.d("SampleApp", "SDK initialized")
@@ -48,9 +48,6 @@ class MainActivity : AppCompatActivity() {
             override fun onAddItemToList(itemName: String) {
                 shoppingListAdapter.add(itemName)
             }
-
-
-
         })
 
         val bsb = BottomSheetBehavior.from(bottomSheet)

@@ -66,7 +66,7 @@ which we declared as `artifactory_user` and `artifactory_password`. You may use 
 ### Step 2: Declare Dependency on Library
 Once library is added locally or is accessible via Maven repo, 
 add `implementation(group: 'com.flipp', name: 'shopper-sdk', version: 'X.Y', ext: 'aar')` to your app's dependencies,
-replacing the version `'X.Y'` with actual version code (such as `1.0`).
+replacing the version `'X.Y'` with actual version code (such as `1.2`).
 
 That's it! Now you have the Flipp Shopper SDK added and ready to use.
 

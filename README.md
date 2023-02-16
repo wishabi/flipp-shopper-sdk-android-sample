@@ -8,6 +8,7 @@ To try it out:
 - run the app.
 
 ## Table of Contents
+- [About the SDK](#about-the-sdk)
 - [Getting started](#getting-started)
   - [Adding the SDK](#adding-the-sdk)
 - [Using the SDK](#using-the-sdk)
@@ -16,11 +17,17 @@ To try it out:
   - [Features](#features)
   - [Callbacks](#callbacks)
 
----
+# About the Flipp Shopper SDK <a name="about-the-sdk"></a>
+The Flipp Shopper SDK is a framework that provides the ability to embed the Flipp NativeX experience within your Android app.
+
+The SDK does this by providing a custom view called `FlyerView`, which has 2 main functionalities:
+
+1. Renders the NativeX experience 
+2. Provides callback methods for your app to handle events from the `FlyerView`
 
 # Integrating Flipp Shopper SDK <a name="getting-started"></a>
 
-## Requirements
+### Requirements
 To successfully use the SDK, you need to request the following from Flipp:
 1) Access to the SDK library (Can be downloaded from this repo)
 2) **publisherID**, **userID**, **siteID**, **zoneID**(s) - values required to initialize the SDK in runtime and start showing flyers

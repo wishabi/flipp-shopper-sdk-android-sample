@@ -7,7 +7,7 @@ To try it out:
 - sync gradle dependencies
 - run the app.
 
-### Table of Contents
+## Table of Contents
 - [Getting started](#getting-started)
   - [Adding the SDK](#adding-the-sdk)
 - [Using the SDK](#using-the-sdk)
@@ -23,7 +23,7 @@ To try it out:
 ## Requirements
 To successfully use the SDK, you need to request the following from Flipp:
 1) Access to the SDK library (Can be downloaded from this repo)
-2) **publisherID**, **UserID**, **siteID**, **zoneID**(s) - values required to initialize the SDK in runtime and start showing flyers
+2) **publisherID**, **userID**, **siteID**, **zoneID**(s) - values required to initialize the SDK in runtime and start showing flyers
 
 The rest of this guide assumes you have obtained the aforementioned keys.
 
@@ -84,11 +84,28 @@ That's it! Now you have the Flipp Shopper SDK added and ready to use.
 
 ## Using the SDK <a name="using-the-sdk"></a>
 ### Initializing the SDK <a name="initialization"></a>
-You need to initialize the SDK at runtime by calling `Flipp.init` as soon as possible, preferably from a subclass of `Application`
-or from your `MainActivity`:
+You will need to initialize the SDK at runtime by calling `Flipp.init` with the parameters below. 
+
+It is preferable to call the `Flipp.init` as soon as possible, preferably from a subclass of `Application`
+or from your `MainActivity`.
+
+
+- ``app`` - The current application object
+- ``publisherName`` - A name that uniquely identifies the client app. Use values provided by Flipp 
+- ``siteId`` - An ID that represents the SDK client. Use values provided by Flipp
+- ``userId`` - A property uniquely identifying the current user
+- ``isDebug`` - A boolean property indicating if this is a development environment. Use `true` for testing and `false` for production
+- ``zoneIds`` - (optional) An array of geographical areas that includes or excludes certain flights and creatives. Use values provided by Flipp
+- ``callback`` - (optional) Your callback function for handling events from the SDK
+
+
+Make sure your `Application` subclass is added to the `AndroidManifest.xml`.
+
+Here is a sample of what `Flipp.init` looks like:
+
 
 ```kotlin
-Flipp.init(application, publisherId, siteID, userID, isDebug, listOf(zoneIDs)) {
+Flipp.init(app, publisherName, siteID, userID, isDebug, listOf(zoneIDs), null) {
     when (it) {
         Flipp.SdkInitCallback.SdkInitResult.OK ->
             Log.d("MyApp", "SDK initialized")
@@ -98,9 +115,7 @@ Flipp.init(application, publisherId, siteID, userID, isDebug, listOf(zoneIDs)) {
 }
 ```
 
-Make sure your `Application` subclass is added to the `AndroidManifest.xml`.
-
-**NOTE:** please ensure the correct parameters (publisherId, siteId, userId, zoneIds) are passed and set `isDebug` to **false** in your production/release builds.
+**NOTE:** Please ensure the init parameters (publisherName, siteId, userId, zoneIds) are passed and `isDebug` is set to **false** in your production/release builds.
 Failure to do so may result in missing revenue or SDK initialization failure.
 
 ### Serving Flyers <a name="serving-flyers"></a>

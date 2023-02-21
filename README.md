@@ -25,6 +25,8 @@ The SDK does this by providing a custom view called `FlyerView`, which has 2 mai
 1. Renders the NativeX experience 
 2. Provides callback methods for your app to handle events from the `FlyerView`
 
+<img src="./assets/SDKIntegration.png" width="25%">
+
 # Integrating Flipp Shopper SDK <a name="getting-started"></a>
 
 ### Requirements
@@ -100,9 +102,9 @@ or from your `MainActivity`.
 - ``app`` - The current application object
 - ``publisherName`` - A name that uniquely identifies the client app. Use values provided by Flipp 
 - ``siteId`` - An ID that represents the SDK client. Use values provided by Flipp
-- ``userId`` - A property uniquely identifying the current user
+- ``userId`` - A unique string anonymously identifying the current user that is used for frequency cap and improving content relevancy. For example, the userId can be a hashed ADID/IDFA, hashed email, internal app or account ID. Do not send PII in plain text or hardcode a static userID
 - ``isDebug`` - A boolean property indicating if this is a development environment. Use `true` for testing and `false` for production
-- ``zoneIds`` - (optional) An array of geographical areas that includes or excludes certain flights and creatives. Use values provided by Flipp
+- ``zoneIds`` - (optional) An array of zones used to separate site/properties within a media partner's portfolio to facilitate content targeting. For example, a zone for sports, another for news or food. Use values provided by Flipp if applicable
 - ``callback`` - (optional) Your callback function for handling events from the SDK
 
 
@@ -148,8 +150,8 @@ You won't need to do anything else to serve flyers. At this point, whenever the 
 `FlyerView` provides certain features that can be enabled/disabled depending on your use case.
 
 Currently we support the following features:
+- `GO_TO_URL` - if a user clicks on a link, it is opened in the native browser. This feature must be enabled.
 - `ADD_TO_SHOPPING_LIST` - (enabled by default) sends a callback when a flyer item is clicked. An example use case would be if your app has a shopping list functionality - enabling this feature would allow the SDK to send clicked items from the flyers for your app to store in the list. (See callbacks below)
-- `GO_TO_URL` - (enabled by default) if a user clicks on a link, it is opened in the native browser
 
 To specify which features to enable, call the `setSupportedFeatures` function with a list of features:
 ```kotlin

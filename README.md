@@ -25,6 +25,8 @@ The SDK does this by providing a custom view called `FlyerView`, which has 2 mai
 1. Renders the NativeX experience 
 2. Provides callback methods for your app to handle events from the `FlyerView`
 
+<img src="./assets/SDKIntegration.png" width="40%">
+
 # Integrating Flipp Shopper SDK <a name="getting-started"></a>
 
 ### Requirements

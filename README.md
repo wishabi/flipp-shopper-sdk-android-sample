@@ -105,6 +105,7 @@ or from your `MainActivity`.
 - ``userId`` - A unique string anonymously identifying the current user that is used for frequency cap and improving content relevancy. For example, the userId can be a hashed ADID/IDFA, hashed email, internal app or account ID. Do not send PII in plain text or hardcode a static userID
 - ``isDebug`` - A boolean property indicating if this is a development environment. Use `true` for testing and `false` for production
 - ``zoneIds`` - (optional) An array of zones used to separate site/properties within a media partner's portfolio to facilitate content targeting. For example, a zone for sports, another for news or food. Use values provided by Flipp if applicable
+- ``contentCode`` - (optional) A string that can be used to invoke different campaign content for testing purposes
 - ``callback`` - (optional) Your callback function for handling events from the SDK
 
 
@@ -114,7 +115,7 @@ Here is a sample of what `Flipp.init` looks like:
 
 
 ```kotlin
-Flipp.init(app, publisherName, siteID, userID, isDebug, listOf(zoneIDs), null) {
+Flipp.init(app, publisherName, siteID, userID, isDebug, listOf(zoneIDs), contentCode, null) {
     when (it) {
         Flipp.SdkInitCallback.SdkInitResult.OK ->
             Log.d("MyApp", "SDK initialized")

@@ -8,16 +8,17 @@ pluginManagement {
 dependencyResolutionManagement {
 //    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-//        mavenLocal()
+        mavenLocal()
         google()
         mavenCentral()
-        maven {
-            url "https://flipplib.jfrog.io/artifactory/shopper-sdk-droid/"
-            credentials {
-                username "${artifactory_user}"
-                password "${artifactory_password}"
-            }
-        }
+//        mavenCentral()
+//        maven {
+//            url "https://flipplib.jfrog.io/artifactory/shopper-sdk-droid/"
+//            credentials {
+//                username "${artifactory_user}"
+//                password "${artifactory_password}"
+//            }
+//        }
 
 //        flatDir {
 //            dirs 'libs'

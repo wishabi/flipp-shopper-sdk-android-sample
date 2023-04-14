@@ -12,7 +12,6 @@ import com.flipp.shoppersdk.views.FlyerEventsListener
 import com.flipp.shoppersdk.views.IntegrationFeatures
 import com.flipp.shoppersdkexample.databinding.ActivityMainBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.tabs.TabLayoutMediator
 
 private const val testZoneId = 260678L
 private const val testSiteId = 1192075L
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Flipp.init(application, "wishabi-test-publisher", testSiteId, "YOUR_USER_ID", true, listOf(testZoneId)) {
+        Flipp.init(application, "wishabi-test-publisher","flipp-sdk", testSiteId, "YOUR_USER_ID", true, listOf(testZoneId)) {
             when (it) {
                 Flipp.SdkInitCallback.SdkInitResult.OK ->
                     Log.d("SampleApp", "SDK initialized")

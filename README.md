@@ -38,24 +38,9 @@ The rest of this guide assumes you have obtained the aforementioned keys.
 
 
 ## Adding Flipp SDK to your Project <a name="adding-the-sdk"></a>
-### Step 1: Add Library to Project (2 methods)
-#### Method A: Adding the Library Locally
-1) Download the latest `shopper-sdk-vX.Y.aar` from [releases page](https://github.com/wishabi/flipp-shopper-sdk-android-sample/releases) 
-2) Add it to your project's `libs` folder (such as `my-project/app/libs`)
-3) Make sure `libs` folder is included in project's `dependencyResolution`, i.e your project's `settings.gradle` has `libs` as a flat directory:
-```groovy
-dependencyResolutionManagement {
-    repositories {
-        // other repositories ...
-        // ...
-        flatDir {
-            dirs 'libs'
-        }
-    }
-}
-```
+### Step 1: Add Library to Project
 
-#### Method B: Adding Library via JFRog (Maven Repo)
+#### Adding Library via JFRog (Maven Repo)
 We publish the library to a private Maven repository hosted on JFrog. To access it,
 please ask our team to grant access to the repository for your JFrog username.
 The JFrog repository is called `shopper-sdk-droid`.
@@ -82,9 +67,9 @@ _Note: Here we are retrieving our JFrog credentials from `~/.gradle/gradle.prope
 which we declared as `artifactory_user` and `artifactory_password`. You may use a similar approach or hardcode the username/password (not recommended)._
 
 ### Step 2: Declare Dependency on Library
-Once library is added locally or is accessible via Maven repo, 
+Once library is accessible via Maven repo, 
 add `implementation(group: 'com.flipp', name: 'shopper-sdk', version: 'X.Y', ext: 'aar')` to your app's dependencies,
-replacing the version `'X.Y'` with actual version code (such as `1.2`).
+replacing the version `'X.Y'` with actual version code (such as `1.3`).
 
 ### Step 3: Sync Maven Files
 Finally, make sure to hit Sync Project with Maven Files.

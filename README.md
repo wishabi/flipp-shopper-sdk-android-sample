@@ -69,7 +69,7 @@ which we declared as `artifactory_user` and `artifactory_password`. You may use 
 ### Step 2: Declare Dependency on Library
 Once library is accessible via Maven repo, 
 add `implementation(group: 'com.flipp', name: 'shopper-sdk', version: 'X.Y', ext: 'aar')` to your app's dependencies,
-replacing the version `'X.Y'` with actual version code (such as `1.2`).
+replacing the version `'X.Y'` with actual version code (such as `1.3`).
 
 ### Step 3: Sync Maven Files
 Finally, make sure to hit Sync Project with Maven Files.

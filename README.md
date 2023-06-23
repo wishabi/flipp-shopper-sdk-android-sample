@@ -146,6 +146,14 @@ You won't need to do anything else to serve flyers. At this point, whenever the 
 
 **NOTE:** Do not initialize the FlyerView with 0 width/height - the SDK will not be able to detect if the experience is currently in view and thus will not trigger loading of the flyer.
 ## FlyerView Features and Callbacks
+### Sizing Modes
+Since `1.4` you can set the sizing mode of the `FlyerView` via `flyerViewInstance.autoResize` boolean (Default is `true`, _highly recommended!_).
+
+When auto resize is set to `true`, the `FlyerView` will automatically resize to fit the flyer content perfectly.
+
+If set to `false`, you'll have to set the size manually, both inside `onFinishedLoading(height: Int)` and `onRequestResize(height: Int)` callbacks.
+
+
 ### Features <a name="features"></a>
 `FlyerView` provides certain features that can be enabled/disabled depending on your use case.
 
@@ -170,7 +178,7 @@ flyerView.setFlyerEventsListener(object: FlyerEventsListener() {
      * This signals the successful loading of a flyer.
      * Flyer content will be visible at this state
      */
-    override fun onFinishedLoading() {
+    override fun onFinishedLoading(height: Int) {
 
     }
 
@@ -201,4 +209,3 @@ flyerView.setFlyerEventsListener(object: FlyerEventsListener() {
 ```
 
 Please note that the callbacks are optional and you do not have to listen to them. You can also override only the needed methods.
-

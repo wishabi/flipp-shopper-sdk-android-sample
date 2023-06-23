@@ -8,23 +8,35 @@
     <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:orientation="vertical">
+                      android:orientation="vertical"
+                      android:id="@+id/articleContainer">
             <include layout="@layout/lorem_ipsum_textview"/>
 
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
                       android:background="#CCAAFF"
-                      android:text="LOCAL DEALS"
+                      android:text="Flyer added via XML 👇"
                       android:gravity="center"
                       android:textSize="16dp"
                       android:padding="3dp"
             />
 
-            <com.flipp.shoppersdk.views.FlyerView
-                    android:id="@+id/flyerView1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+            <com.flipp.shoppersdk.views.FlyerView android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+            />
 
             <include layout="@layout/lorem_ipsum_textview"/>
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="#CCAAFF"
+                      android:text="Flyer added programmatically 👇"
+                      android:gravity="center"
+                      android:textSize="16dp"
+                      android:padding="3dp"
+            />
+
+
         </LinearLayout>
     </ScrollView>
 
@@ -37,7 +49,8 @@
 
         <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent" android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <TextView android:layout_width="match_parent"
                       android:layout_height="wrap_content"

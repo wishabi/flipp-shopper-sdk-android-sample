@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Flipp.init(application, "wishabi-test-publisher","flipp-sdk", testSiteId, "YOUR_USER_ID", true, listOf(testZoneId)) {
+        Flipp.init(application, "wishabi-test-publisher","e2e-staging-sfml-native", testSiteId, "YOUR_USER_ID", true, listOf(testZoneId)) {
             when (it) {
                 Flipp.SdkInitCallback.SdkInitResult.OK ->
                     Log.d("SampleApp", "SDK initialized")

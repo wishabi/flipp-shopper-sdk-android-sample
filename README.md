@@ -71,6 +71,8 @@ Once library is accessible via Maven repo,
 add `implementation(group: 'com.flipp', name: 'shopper-sdk', version: 'X.Y', ext: 'aar')` to your app's dependencies,
 replacing the version `'X.Y'` with actual version code (such as `1.3`).
 
+Note: Updates to the SDK will be released over time. Flipp should notify your team if there is a critical version number to upgrade to.  
+
 ### Step 3: Sync Maven Files
 Finally, make sure to hit Sync Project with Maven Files.
 
@@ -89,6 +91,7 @@ or from your `MainActivity`.
 - ``siteId`` - An ID that represents the SDK client. Use values provided by Flipp
 - ``userId`` - A unique string anonymously identifying the current user that is used for frequency cap and improving content relevancy. For example, the userId can be a hashed ADID/IDFA, hashed email, internal app or account ID. Do not send PII in plain text or hardcode a static userID
 - ``isDebug`` - A boolean property indicating if this is a development environment. Use `true` for testing and `false` for production
+- ``isReactNative`` - A boolean property indicating if the SDK is used in an React Native app
 - ``zoneIds`` - (optional) An array of zones used to separate site/properties within a media partner's portfolio to facilitate content targeting. For example, a zone for sports, another for news or food. Use values provided by Flipp if applicable
 - ``contentCode`` - (optional) A string that can be used to invoke different campaign content for testing purposes
 - ``callback`` - (optional) Your callback function for handling events from the SDK
@@ -100,7 +103,7 @@ Here is a sample of what `Flipp.init` looks like:
 
 
 ```kotlin
-Flipp.init(app, publisherName, siteID, userID, isDebug, listOf(zoneIDs), contentCode, null) {
+Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zoneIDs), contentCode, null) {
     when (it) {
         Flipp.SdkInitCallback.SdkInitResult.OK ->
             Log.d("MyApp", "SDK initialized")

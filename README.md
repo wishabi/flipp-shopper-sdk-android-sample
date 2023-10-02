@@ -142,6 +142,15 @@ When auto resize is set to `true`, the `FlyerView` will automatically resize to 
 
 If set to `false`, you'll have to set the size manually, both inside `onFinishedLoading(height: Int)` and `onRequestResize(height: Int)` callbacks.
 
+### Setting The Context <a name="features"></a>
+To further personalize the content of the `FlyerView`, you can pass the context of the page that the experience exists in to the SDK. For example, if the user is on a beef stew recipe page, you can pass in the ingredients as keywords, and the SDK will try to generate beef stew-related deals.
+
+To do this, you can use the a function from `FlyerView` called `setContext` which takes two parameters:
+1. `contextList` - An array of strings that can contain keywords from a shopping list/recipe list/etc. Used to personalize the context 
+2. `contextUrl` - A string identifier of the current page containing the webview
+
+It is preferable to call `setContext` as close to the initialization of the `FlyerView` as possible.
+
 
 ### Features <a name="features"></a>
 `FlyerView` provides certain features that can be enabled/disabled depending on your use case.

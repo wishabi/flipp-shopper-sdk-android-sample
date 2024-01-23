@@ -69,9 +69,10 @@ which we declared as `artifactory_user` and `artifactory_password`. You may use 
 ### Step 2: Declare Dependency on Library
 Once library is accessible via Maven repo, 
 add `implementation(group: 'com.flipp', name: 'shopper-sdk', version: 'X.Y', ext: 'aar')` to your app's dependencies,
-replacing the version `'X.Y'` with actual version code (such as `1.3`).
+replacing the version `'X.Y'` with actual version code (such as `1.7`). 
 
-Note: Updates to the SDK will be released over time. Flipp should notify your team if there is a critical version number to upgrade to.  
+Note: Updates to the SDK will be released over time. We recommend using the latest version number available from the Releases page here: https://github.com/wishabi/flipp-shopper-sdk-android-sample/releases.
+Flipp will also notify your team if there is a critical version number to upgrade to.  
 
 ### Step 3: Sync Maven Files
 Finally, make sure to hit Sync Project with Maven Files.

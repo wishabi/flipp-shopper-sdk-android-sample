@@ -169,6 +169,8 @@ flyerView.setSupportedFeatures(
 ```
 
 ### Callbacks <a name="callbacks"></a>
+
+#### FlyerEventsListener <a name="FlyerEventsListener"></a>
 You can attach a `FlyerEventsListener` to a `FlyerView` instance to receive updates:
 
 ```kotlin
@@ -206,5 +208,31 @@ flyerView.setFlyerEventsListener(object: FlyerEventsListener() {
     }
 })
 ```
+#### slotFillResultCallback <a name="slotFillResultCallback"></a>
+
+- Publishers not using bidding integrations but requiring real-time information on slot fills can use `slotFillResultCallback`
+- This custom callback is invoked once it is determined what will populate the ad slot, currently implemented only for code-on-page solutions
+- This callback can be included as part of the register slot options
+
+The function signature is `slotFillResultCallback?: (filled: boolean) => void;` it accepts a boolean value filled, which is set to `true` when an experience is rendered in the slot, and `false` when no experience is returned.
+
+```kotlin
+// Placeholder function that demonstrates callback 
+const slotFillResultCallbackFunc = function(filled) {
+  console.log("slot fill response callback: ", filled);
+}
+window.flippxp.run.push(function() {
+   window.flippxp.registerSlot(
+   "#flipp-ux-slot-123te4st",
+   "wishabi-test-publisher",
+   1181258,
+   [ 259136 ],
+   {
+      dwellExpandable: true,
+      slotFillResultCallback: slotFillResultCallbackFunc
+   }
+);
+```
+
 
 Please note that the callbacks are optional and you do not have to listen to them. You can also override only the needed methods.

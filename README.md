@@ -69,7 +69,7 @@ which we declared as `artifactory_user` and `artifactory_password`. You may use 
 ### Step 2: Declare Dependency on Library
 Once library is accessible via Maven repo, 
 add `implementation(group: 'com.flipp', name: 'shopper-sdk', version: 'X.Y', ext: 'aar')` to your app's dependencies,
-replacing the version `'X.Y'` with actual version code (such as `1.7`). 
+replacing the version `'X.Y'` with actual version code (such as `1.8`). 
 
 Note: Updates to the SDK will be released over time. We recommend using the latest version number available from the Releases page here: https://github.com/wishabi/flipp-shopper-sdk-android-sample/releases.
 Flipp will also notify your team if there is a critical version number to upgrade to.  
@@ -95,6 +95,7 @@ or from your `MainActivity`.
 - ``isReactNative`` - A boolean property indicating if the SDK is used in an React Native app
 - ``zoneIds`` - (optional) An array of zones used to separate site/properties within a media partner's portfolio to facilitate content targeting. For example, a zone for sports, another for news or food.  ZoneIDs are constrained to integer values and must align with the ID's provided by Flipp
 - ``contentCode`` - (optional) A string that can be used to invoke different campaign content for testing purposes
+- ``options`` - (optional) A set of SdkOptions that can be used to configure the experience
 - ``callback`` - (optional) Your callback function for handling events from the SDK
 
 
@@ -104,7 +105,7 @@ Here is a sample of what `Flipp.init` looks like:
 
 
 ```kotlin
-Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zoneIDs), contentCode, null) {
+Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zoneIDs), contentCode, SetOf(Flipp.SdkOptions.DWELL_EXPANDABLE)) {
     when (it) {
         Flipp.SdkInitCallback.SdkInitResult.OK ->
             Log.d("MyApp", "SDK initialized")
@@ -208,3 +209,10 @@ flyerView.setFlyerEventsListener(object: FlyerEventsListener() {
 ```
 
 Please note that the callbacks are optional and you do not have to listen to them. You can also override only the needed methods.
+
+### Options <a name="options"></a>
+`FlyerView` provides certain options that can be enabled/disabled depending on your use case.
+
+Currently we support the following options:
+- `START_COMPACT` - when true, the flyer is shown with a smaller height
+- `DWELL_EXPANDABLE` - when true, the bottom flyer button is replaced with a timer that auto-expands the experience if the user is focusing on the flyer

@@ -16,6 +16,7 @@ To try it out:
   - [Serving flyers](#serving-flyers)
   - [Features](#features)
   - [Callbacks](#callbacks)
+  - [Options](#options)
 
 # About the Flipp Shopper SDK <a name="about-the-sdk"></a>
 The Flipp Shopper SDK is a framework that provides the ability to embed the Flipp NativeX experience within your Android app.
@@ -26,6 +27,15 @@ The SDK does this by providing a custom view called `FlyerView`, which has 2 mai
 2. Provides callback methods for your app to handle events from the `FlyerView`
 
 <img src="./assets/SDKIntegration.png" width="25%">
+
+## Mid-Article Compact
+In addition to our standard unit, the Flipp SDK offers a compact, expandable flyer unit specifically designed for mid-article placement. This unit initially appears in a smaller size (300x600) and is engineered to automatically expand as the user engages with the content
+
+<img src="./assets/MidArticleCompact.png" width="25%">
+
+
+This is configured using the `START_COMPACT` and `DWELL_EXPAND` [options](#options)
+
 
 # Integrating Flipp Shopper SDK <a name="getting-started"></a>
 
@@ -105,7 +115,7 @@ Here is a sample of what `Flipp.init` looks like:
 
 
 ```kotlin
-Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zoneIDs), contentCode, SetOf(Flipp.SdkOptions.DWELL_EXPANDABLE)) {
+Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zoneIDs), contentCode, setOf(Flipp.SdkOptions.DWELL_EXPANDABLE)) {
     when (it) {
         Flipp.SdkInitCallback.SdkInitResult.OK ->
             Log.d("MyApp", "SDK initialized")

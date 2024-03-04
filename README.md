@@ -33,7 +33,7 @@ The standard 300x1800 ratio ad unit designed to be placed at the bottom of an ar
 
 <img src="./assets/SDKIntegration.png" width="25%">
 
-## Mid-Article Compact <a name="compact-unit"></a>
+## Mid-Article Compact Unit <a name="compact-unit"></a>
 In addition to our standard unit, the Flipp SDK offers a compact, expandable flyer unit specifically designed for mid-article placement. This unit initially appears in a smaller size (300x600) and is engineered to automatically expand as the user engages with the content
 
 <img src="./assets/MidArticleCompact.png" width="25%">

@@ -34,7 +34,7 @@ The standard 300x1800 ratio ad unit designed to be placed at the bottom of an ar
 <img src="./assets/SDKIntegration.png" width="25%">
 
 ## Compact Unit <a name="compact-unit"></a>
-The compact unit appears in a smaller size of 300x600 and is intended for to be placed in the middle of the page. This ad type can automatically expand as the user engages with the content. To use the compact mode, define `START_COMPACT` and `DWELL_EXPANDABLE` as true. [Read more about these options](#options)
+The compact unit appears in a smaller size of 300x600 and is intended to be placed in the middle of the page. This ad type can automatically expand as the user engages with the content. To use the compact mode, define `START_COMPACT` and `DWELL_EXPANDABLE` as true. [Read more about these options](#options)
 
 <img src="./assets/MidArticleCompact.png" width="25%">
 
@@ -227,5 +227,5 @@ Please note that the callbacks are optional and you do not have to listen to the
 
 ### Options <a name="options"></a>
 You can apply additional settings that customize how the ad renders through the `options` field of the `Flipp.init` initialization function. Currently, the available options are: 
-  - `.START_COMPACT`: Renders a flyer with a smaller height of 600px. It is recommended to also toggle on dwellExpandable with this option. Read more about the [Compact Unit](#compact-unit)
+  - `.START_COMPACT`: Renders a flyer with a smaller height of 600px. It is recommended to also toggle on `DWELL_EXPANDABLE` with this option. Read more about the [Compact Unit](#compact-unit)
   - `.DWELL_EXPANDABLE`: Enables auto-expansion of the flyer if the user keeps the ad on screen for more than 3 seconds

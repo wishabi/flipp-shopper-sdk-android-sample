@@ -9,6 +9,8 @@ To try it out:
 
 ## Table of Contents
 - [About the SDK](#about-the-sdk)
+  - [Standard Unit](#standard-unit)
+  - [Compact Unit](#compact-unit) 
 - [Getting started](#getting-started)
   - [Adding the SDK](#adding-the-sdk)
 - [Using the SDK](#using-the-sdk)
@@ -16,6 +18,7 @@ To try it out:
   - [Serving flyers](#serving-flyers)
   - [Features](#features)
   - [Callbacks](#callbacks)
+  - [Options](#options)
 
 # About the Flipp Shopper SDK <a name="about-the-sdk"></a>
 The Flipp Shopper SDK is a framework that provides the ability to embed the Flipp NativeX experience within your Android app.
@@ -25,7 +28,19 @@ The SDK does this by providing a custom view called `FlyerView`, which has 2 mai
 1. Renders the NativeX experience 
 2. Provides callback methods for your app to handle events from the `FlyerView`
 
+## Standard Unit <a name="standard-unit"></a>
+The standard 300x1800 ratio ad unit designed to be placed at the bottom of an article
+
 <img src="./assets/SDKIntegration.png" width="25%">
+
+## Compact Unit <a name="compact-unit"></a>
+The compact unit appears in a smaller size of 300x600 and is intended to be placed in the middle of the page. This ad type can automatically expand as the user engages with the content. To use the compact mode, define `START_COMPACT` and `DWELL_EXPANDABLE` as true. [Read more about these options](#options)
+
+<img src="./assets/MidArticleCompact.png" width="25%">
+
+
+This is configured using the `START_COMPACT` and `DWELL_EXPANDABLE` [options](#options)
+
 
 # Integrating Flipp Shopper SDK <a name="getting-started"></a>
 
@@ -69,7 +84,7 @@ which we declared as `artifactory_user` and `artifactory_password`. You may use 
 ### Step 2: Declare Dependency on Library
 Once library is accessible via Maven repo, 
 add `implementation(group: 'com.flipp', name: 'shopper-sdk', version: 'X.Y', ext: 'aar')` to your app's dependencies,
-replacing the version `'X.Y'` with actual version code (such as `1.7`). 
+replacing the version `'X.Y'` with actual version code (such as `1.8`). 
 
 Note: Updates to the SDK will be released over time. We recommend using the latest version number available from the Releases page here: https://github.com/wishabi/flipp-shopper-sdk-android-sample/releases.
 Flipp will also notify your team if there is a critical version number to upgrade to.  
@@ -95,6 +110,7 @@ or from your `MainActivity`.
 - ``isReactNative`` - A boolean property indicating if the SDK is used in an React Native app
 - ``zoneIds`` - (optional) An array of zones used to separate site/properties within a media partner's portfolio to facilitate content targeting. For example, a zone for sports, another for news or food.  ZoneIDs are constrained to integer values and must align with the ID's provided by Flipp
 - ``contentCode`` - (optional) A string that can be used to invoke different campaign content for testing purposes
+- ``options`` - (optional) A Set of loader options that can be used to customize how the ad renders. [See available options](#options)
 - ``callback`` - (optional) Your callback function for handling events from the SDK
 
 
@@ -104,7 +120,7 @@ Here is a sample of what `Flipp.init` looks like:
 
 
 ```kotlin
-Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zoneIDs), contentCode, null) {
+Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zoneIDs), contentCode, setOf(Flipp.SdkOptions.DWELL_EXPANDABLE)) {
     when (it) {
         Flipp.SdkInitCallback.SdkInitResult.OK ->
             Log.d("MyApp", "SDK initialized")
@@ -208,3 +224,8 @@ flyerView.setFlyerEventsListener(object: FlyerEventsListener() {
 ```
 
 Please note that the callbacks are optional and you do not have to listen to them. You can also override only the needed methods.
+
+### Options <a name="options"></a>
+You can apply additional settings that customize how the ad renders through the `options` field of the `Flipp.init` initialization function. Currently, the available options are: 
+  - `.START_COMPACT`: Renders a flyer with a smaller height of 600px. It is recommended to also toggle on `DWELL_EXPANDABLE` with this option. Read more about the [Compact Unit](#compact-unit)
+  - `.DWELL_EXPANDABLE`: Enables auto-expansion of the flyer if the user keeps the ad on screen for more than 3 seconds

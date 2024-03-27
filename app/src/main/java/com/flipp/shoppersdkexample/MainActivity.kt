@@ -17,13 +17,14 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 private const val testZoneId = 260678L
 private const val testSiteId = 1192075L
+private const val domain = "http://www.myapp.com"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Flipp.init(application, "wishabi-test-publisher","flipp-sdk", testSiteId, "YOUR_USER_ID", true, false, listOf(testZoneId), "http://www.myapp.com") {
+        Flipp.init(application, "wishabi-test-publisher","flipp-sdk", testSiteId, "YOUR_USER_ID", true, false, listOf(testZoneId), domain) {
             when (it) {
                 Flipp.SdkInitCallback.SdkInitResult.OK ->
                     Log.d("SampleApp", "SDK initialized")

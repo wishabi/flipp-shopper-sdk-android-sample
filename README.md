@@ -131,7 +131,7 @@ Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zo
 }
 ```
 
-**NOTE:** Please ensure the init parameters (publisherName, siteId, userId, zoneIds) are passed and `isDebug` is set to **false** in your production/release builds.
+**NOTE:** Please ensure the init parameters (publisherName, siteId, userId, zoneIds, domain) are passed and `isDebug` is set to **false** in your production/release builds.
 Failure to do so may result in missing revenue or SDK initialization failure.
 
 ### Serving Flyers <a name="serving-flyers"></a>

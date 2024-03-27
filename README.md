@@ -47,7 +47,7 @@ This is configured using the `START_COMPACT` and `DWELL_EXPANDABLE` [options](#o
 ### Requirements
 To successfully use the SDK, you need to request the following from Flipp:
 1) Access to the SDK library (Can be downloaded from this repo)
-2) **publisherID**, **userID**, **siteID**, **zoneID**(s) - values required to initialize the SDK in runtime and start showing flyers
+2) **publisherID**, **userID**, **siteID**, **zoneID**(s), **domain** - values required to initialize the SDK in runtime and start showing flyers
 
 The rest of this guide assumes you have obtained the aforementioned keys.
 
@@ -103,12 +103,13 @@ or from your `MainActivity`.
 
 
 - ``app`` - The current application object
-- ``publisherName`` - A name that uniquely identifies the client app. Use values provided by Flipp 
+- ``publisherName`` - A name that uniquely identifies the name of the publisher integrating the SDK. Use values provided by Flipp 
 - ``siteId`` - An ID that represents the SDK client. Use values provided by Flipp
 - ``userId`` - A unique string anonymously identifying the current user that is used for frequency cap and improving content relevancy. For example, the userId can be a hashed ADID/IDFA, hashed email, internal app or account ID. Do not send PII in plain text or hardcode a static userID
 - ``isDebug`` - A boolean property indicating if this is a development environment. Use `true` for testing and `false` for production
 - ``isReactNative`` - A boolean property indicating if the SDK is used in an React Native app
 - ``zoneIds`` - (optional) An array of zones used to separate site/properties within a media partner's portfolio to facilitate content targeting. For example, a zone for sports, another for news or food.  ZoneIDs are constrained to integer values and must align with the ID's provided by Flipp
+- ``domain`` - A string property indicating the app's name. Can be the same as publisherName if the publisher only owns one app
 - ``contentCode`` - (optional) A string that can be used to invoke different campaign content for testing purposes
 - ``options`` - (optional) A Set of loader options that can be used to customize how the ad renders. [See available options](#options)
 - ``callback`` - (optional) Your callback function for handling events from the SDK
@@ -120,7 +121,7 @@ Here is a sample of what `Flipp.init` looks like:
 
 
 ```kotlin
-Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zoneIDs), contentCode, setOf(Flipp.SdkOptions.DWELL_EXPANDABLE)) {
+Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zoneIDs), "http://www.myapp.com", contentCode, setOf(Flipp.SdkOptions.DWELL_EXPANDABLE)) {
     when (it) {
         Flipp.SdkInitCallback.SdkInitResult.OK ->
             Log.d("MyApp", "SDK initialized")
@@ -130,7 +131,7 @@ Flipp.init(app, publisherName, siteID, userID, isDebug, isReactNative, listOf(zo
 }
 ```
 
-**NOTE:** Please ensure the init parameters (publisherName, siteId, userId, zoneIds) are passed and `isDebug` is set to **false** in your production/release builds.
+**NOTE:** Please ensure the init parameters (publisherName, siteId, userId, zoneIds, domain) are passed and `isDebug` is set to **false** in your production/release builds.
 Failure to do so may result in missing revenue or SDK initialization failure.
 
 ### Serving Flyers <a name="serving-flyers"></a>
